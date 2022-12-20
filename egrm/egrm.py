@@ -10,13 +10,13 @@ import pandas as pd
 import matrix
 
 
-# exports [matrix._matrix_C_API] object into a 2d numpy array
-# mat_C: [matrix._matrix_C_API] object initiated by matrix.new_matrix, only stores the upper triangle elements of a square matrix
-# N: the number of columns/rows
-def mat_C_to_ndarray(mat_C, N): 
-  buffer = matrix.export_ndarray(mat_C)
-  buffer = buffer + np.transpose(buffer) - np.diag(np.diag(buffer))
-  return buffer
+# exports [matrix._matrix_C_API] object into a 2d numpy array mat_C: [matrix._matrix_C_API] object initiated by
+# matrix.new_matrix, only stores the upper triangle elements of a square matrix N: the number of columns/rows
+def mat_C_to_ndarray(mat_C, N):
+    buffer = matrix.export_ndarray(mat_C)
+    buffer = buffer + np.transpose(buffer) - np.diag(np.diag(buffer))
+    matrix.destroy_matrix(mat_C)
+    return buffer
 
 
 ### defines [Gmap] object which maps the physical position (in bp) into genetic position (in unit of 10^-6 cM)
