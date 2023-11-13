@@ -82,6 +82,7 @@ def varGRM_C(
     g=(lambda x: 1 / (x * (1 - x))),
     var=True,
     sft=False,
+    mu_pbp=1e-8,  # mutation rate per bp
 ):
     N = trees.num_samples
     egrm_C = matrix.new_matrix(N)
@@ -118,7 +119,7 @@ def varGRM_C(
             if n == 0 or n == N:
                 continue
             t = max(0, min(alim, tree.time(tree.parent(c))) - max(rlim, tree.time(c)))
-            mu = region_length * t * 1e-8
+            mu = region_length * t * mu_pbp
             p = float(n / N)
             matrix.add_square(egrm_C, descendants, mu * g(p))
             if var:
@@ -231,6 +232,7 @@ def varGRM(
     g=(lambda x: 1 / (x * (1 - x))),
     var=True,
     sft=False,
+    mu_pbp=1e-8,  # mutation rate per bp
 ):
     N = trees.num_samples
     egrm = np.zeros([N, N])
@@ -267,7 +269,7 @@ def varGRM(
             if n == 0 or n == N:
                 continue
             t = max(0, min(alim, tree.time(tree.parent(c))) - max(rlim, tree.time(c)))
-            mu = region_length * t * 1e-8
+            mu = region_length * t * mu_pbp
             p = float(n / N)
             egrm[np.ix_(descendants, descendants)] += mu * g(p)
             if var:
