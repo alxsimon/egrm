@@ -11,7 +11,7 @@ import pandas as pd
 import tskit
 
 ### importing egrm
-from egrm import varGRM, varGRM_C, Gmap
+from egrm_legacy import varGRM, varGRM_C, Gmap
 
 
 def get_logger(name, path=None):
