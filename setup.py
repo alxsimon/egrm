@@ -13,7 +13,7 @@ def readme():
 
 
 setup(
-    name="egrm",
+    name="egrm_legacy",
     version="0.1",
     author="Caoqi Fan",
     author_email="caoqifan@usc.edu",
@@ -30,7 +30,7 @@ setup(
         "tqdm",
     ],
     scripts=[
-        "bin/trees2egrm",
+        "bin/trees2egrm_legacy",
     ],
     ext_modules=[
         Extension("matrix", ["src/matrix.c"], include_dirs=[np.get_include()]),
