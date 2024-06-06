@@ -20,8 +20,8 @@ setup(
     description="Expected Genetic Relationship Matrix",
     long_description=readme(),
     long_description_content_type="text/markdown",
-    url="https://github.com/Ephraim-usc/egrm.git",
-    packages=["egrm"],
+    url="https://github.com/alxsimon/egrm_legacy.git",
+    packages=["egrm_legacy"],
     python_requires=">=3",
     install_requires=[
         "numpy>=1.14.5",
