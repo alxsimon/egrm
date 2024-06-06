@@ -1,3 +1,5 @@
+This folder is a fork from https://github.com/Ephraim-usc/egrm mainly fixing a memory leak issue and renaming the package to be able to install it in parallel of another fork (https://github.com/vivilink/egrm).
+
 Expected Genetic Relationship Matrix
 ========
 
